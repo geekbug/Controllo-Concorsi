@@ -1,6 +1,6 @@
 # 🔔 Controllo Concorsi — Monitoraggio Automatico Bandi e Comunicazioni
 
-**Controllo Concorsi** è un sistema di monitoraggio automatico in Python che controlla periodicamente le pagine web dei concorsi pubblici (es. portale **InPA**, Camere di Commercio, ASL, Comuni, Ministeri) e **invia una notifica via email** non appena vengono pubblicati nuovi allegati, PDF, graduatorie o comunicazioni.
+**Controllo Concorsi** è un sistema di monitoraggio automatico in Python che controlla periodicamente gli **URL specificati nel file dedicato (`monitor.py`)** — come le pagine web dei concorsi pubblici (es. portale **InPA**, Camere di Commercio, ASL, Comuni, Ministeri) — e **invia una notifica via email** non appena vengono pubblicati nuovi allegati, PDF, graduatorie o comunicazioni.
 
 Grazie all'integrazione con **GitHub Actions**, lo script gira gratuitamente in cloud (ogni 5 minuti) **senza bisogno di tenere il proprio computer acceso**.
 
@@ -8,7 +8,7 @@ Grazie all'integrazione con **GitHub Actions**, lo script gira gratuitamente in 
 
 ## ⚙️ Come funziona
 
-1. **Estrazione intelligente dei link (`monitor.py`)**: Per ogni pagina configurata nella lista `SITES_TO_MONITOR`, lo script scarica il contenuto principale (`<main>`) ed estrae tutti i link a documenti, allegati e comunicazioni.
+1. **Lista degli URL da monitorare (`monitor.py`)**: Il sistema monitora tutti e soli gli URL che vengono inseriti dall'utente nella sezione `SITES_TO_MONITOR` all'interno del file dedicato [`monitor.py`](./monitor.py). Per ogni URL inserito, lo script scarica il contenuto principale (`<main>`) della pagina ed estrae tutti i link a documenti, allegati e comunicazioni.
 2. **Memoria di stato (`known_links.json`)**:
    * **Al primo avvio** per un nuovo sito, lo script salva tutti i link già presenti sulla pagina dentro `known_links.json` senza inviare email (così da non intasare la casella con vecchi allegati).
    * **Ai controlli successivi**, confronta i link attuali della pagina con quelli salvati in `known_links.json`.
