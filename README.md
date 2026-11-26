@@ -6,6 +6,17 @@ Grazie all'integrazione con **GitHub Actions**, lo script gira gratuitamente in 
 
 ---
 
+## 📋 Cosa serve (Prerequisiti)
+
+Per utilizzare questo progetto in cloud **non serve installare alcun programma sul PC** e non servono competenze di programmazione. Ti bastano solo:
+
+1. **Un account GitHub** (gratuito) — per ospitare la tua copia del progetto e far girare il controllo automatico ogni 5 minuti tramite *GitHub Actions*.
+2. **Un account Gmail con "Verifica in due passaggi" attiva** — necessario per generare una *Password per le app* con cui lo script invierà le email di notifica.
+3. **Gli URL delle pagine dei concorsi** che vuoi monitorare (es. i link dei bandi su InPA o sui siti di Comuni, Regioni, ASL, Camere di Commercio, ecc.).
+4. **Uno o più indirizzi email destinatari** (di qualsiasi provider: Gmail, Outlook, Libero, ecc.) a cui vuoi far arrivare gli avvisi.
+
+---
+
 ## ⚙️ Come funziona
 
 1. **Lista degli URL da monitorare (`monitor.py`)**: Il sistema monitora tutti e soli gli URL che vengono inseriti dall'utente nella sezione `SITES_TO_MONITOR` all'interno del file dedicato [`monitor.py`](./monitor.py). Per ogni URL inserito, lo script scarica il contenuto principale (`<main>`) della pagina ed estrae tutti i link a documenti, allegati e comunicazioni.
